@@ -72,7 +72,7 @@ END;
 --That way you can re-use then in other PL/SQL blocks
 --In this examples TYPE e_list is created and then PL/SQL block use it
 DROP TYPE e_list;
-CREATE TYPE e_list IS VARRAY(20) OF VARCHAR2(100);
+CREATE OR REPLACE TYPE e_list IS VARRAY(20) OF VARCHAR2(100);
 /
 
 DECLARE

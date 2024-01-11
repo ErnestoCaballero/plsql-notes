@@ -55,3 +55,14 @@ begin
   end loop; */
   open c_emps;
 end;
+/
+-------------Another Basic example (performing an update)
+DECLARE
+    CURSOR c_emps IS SELECT * FROM employees
+                     WHERE department_id=30 FOR UPDATE;
+BEGIN
+    FOR r_emps IN c_emps LOOP
+        UPDATE employees SET salary = salary + 60
+        WHERE employee_id = r_emps.employee_id;
+    END LOOP;
+END;

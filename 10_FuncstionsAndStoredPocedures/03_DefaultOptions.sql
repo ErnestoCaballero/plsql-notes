@@ -47,4 +47,6 @@ EXEC add_job('IT_DIR5','IT Director', max_salary => 10000);
 --Use the max_salary => <<amount>> notation
 /
 
-
+--This is also valid with named notation
+EXEC add_job(job_title =>'IT Director',max_salary => 10000,job_id => 'IT_DIR7',min_salary => 500);
+/

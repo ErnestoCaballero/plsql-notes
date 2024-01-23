@@ -8,7 +8,8 @@
 --Let's say I want to create a FUNCTION to get the average salary of an specific department
 --We set as parametes de department_id and RETURN a NUMBER variable
 --Also notice after the END keyword we write the name of the declared FUNCTION
-CREATE OR REPLACE FUNCTION get_avg_sal(p_dept_id DEPARTMENTS.department_id%type) RETURN NUMBER AS v_avg_sal NUMBER;
+CREATE OR REPLACE FUNCTION get_avg_sal(p_dept_id DEPARTMENTS.department_id%type) RETURN NUMBER AS 
+    v_avg_sal NUMBER;
 BEGIN
     SELECT ROUND(AVG(salary),2) INTO v_avg_sal FROM employees WHERE department_id=p_dept_id;
     RETURN v_Avg_sal;

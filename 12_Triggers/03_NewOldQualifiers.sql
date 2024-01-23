@@ -16,3 +16,19 @@ BEGIN
 END;
 /
 --NOTICE that the :new and :old variables only work before we added the FOR EACH ROW sentence
+
+--You should take into account that INSERT triggers will no have :old values since there were not old valyes
+--Same as DELETE triggers will not return :new variables since the records do not exist anymore
+
+--You can change the alias for old and new qualifiers by writing the REFERENCING OLD AS <<alias_old>> NEW AS <<alias_new>>
+--BEFORE the FOR EACH ROW sentence
+create or replace TRIGGER before_row_emp_cpy
+BEFORE INSERT OR UPDATE ON employees_copy
+REFERENCING OLD AS o NEW AS n
+FOR EACH ROW
+BEGIN
+    dbms_output.put_line('Before Row Trigger is Fired!');
+    dbms_output.put_line('The salary of the Employee ' || :o.employee_id 
+     || ' -> Before: ' || :o.salary || ' After: ' || :n.salary);
+END;
+/

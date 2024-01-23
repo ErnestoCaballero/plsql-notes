@@ -1,6 +1,6 @@
 --Basic Associative array example
 --Notice the declaration of the TYPE now includes INDEX BY which can hold PLS_INTEGER, BYNARY_INTEGER, VARCHAR2
---Also, no need of .extend methos since it increases dynamically
+--Also, no need of .extend method since it increases dynamically
 DECLARE
     TYPE e_list IS TABLE OF employees.first_name%type INDEX BY PLS_INTEGER;
     emps e_list;
@@ -56,7 +56,7 @@ END;
 --*******************************************************************
 --IMPORTANT
 --*******************************************************************
---Here we create an Associative Array (a king of HashMap) 
+--Here we create an Associative Array (a kind of HashMap) 
 --That will hold the first_name as VALUE and email KEY
 DECLARE
     TYPE e_list IS TABLE OF employees.first_name%type INDEX BY VARCHAR2(50);
